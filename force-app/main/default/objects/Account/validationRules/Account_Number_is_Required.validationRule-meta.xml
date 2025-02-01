@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Number_is_Required</fullName>
+    <active>true</active>
+    <description>This is a sample validation rule created to test bypass logic. The rule will trigger if the Account Number is blank.</description>
+    <errorConditionFormula>AND(NOT($Setup.Bypass_Settings__c.Bypass_Validations__c), OR( ISBLANK($Setup.Bypass_Settings__c.Specific_Automation_Bypass__c), 
+NOT(CONTAINS($Setup.Bypass_Settings__c.Specific_Automation_Bypass__c, &apos;Account_Number_is_Required&apos;))),
+ISBLANK(AccountNumber))</errorConditionFormula>
+    <errorDisplayField>AccountNumber</errorDisplayField>
+    <errorMessage>Account Number is required.</errorMessage>
+</ValidationRule>
